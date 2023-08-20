@@ -18,6 +18,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         const R2 = new R2Bucket(storage)
         Object.assign((event.platform as object) ??= {}, { KV, R2 })
     } else {
+        console.log(event.platform)
         event.platform = (event.platform as any).env
     }
     const token = event.cookies.get("jwt")
