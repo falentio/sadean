@@ -17,7 +17,7 @@
 			<img src="/image/{product.image}" alt={product.name} class="aspect-3/2 object-cover w-full" />
 		</div>
 		<span
-			class="peer bg-black text-white h-full text-ellipsis overflow-hidden px-2 py-1 font-semibold hover:(break-all absolute top-full h-max w-full) peer-hover:(break-all absolute top-full h-max w-full)"
+			class="peer bg-black text-white h-full text-ellipsis overflow-hidden px-2 py-1 font-semibold"
 		>
 			{product.name}
 		</span>
