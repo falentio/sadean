@@ -1,4 +1,4 @@
-import { dev } from "$app/environment"
+import { building, dev } from "$app/environment"
 import { verifyToken } from "$lib/auth"
 import { account, known, type AccountPublic, accountPublic } from "$lib/schema"
 import { redirect, type Handle } from "@sveltejs/kit"
@@ -17,8 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         const KV = new KVNamespace(storage)
         const R2 = new R2Bucket(storage)
         Object.assign((event.platform as object) ??= {}, { KV, R2 })
-    } else {
-        console.log(event.platform)
+    } else if (!building) {
         event.platform = (event.platform as any).env
     }
     const token = event.cookies.get("jwt")
