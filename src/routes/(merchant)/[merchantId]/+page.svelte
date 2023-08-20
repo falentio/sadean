@@ -18,7 +18,7 @@
 				<Button class="bg-green-5 hover:bg-green-4/80" href="/setting">Pengaturan</Button>
 			{/if}
 		</Card>
-		<Card class="flex-col bg-sky-4 [&:has(button)]:flex hidden">
+		<Card class="flex-col bg-sky-4 x">
 			<Social />
 		</Card>
 	</div>
@@ -58,3 +58,12 @@
 		<span class="i-mdi:cart w-8" />
 	</a>
 </Bg> -->
+
+<style>
+	.x {
+		display: none;
+	}
+	.x:has(button) {
+		display: flex;
+	}
+</style>
