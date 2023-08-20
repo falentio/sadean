@@ -60,7 +60,6 @@
 			(schema.object[k as keyof typeof schema] as unknown as NumberSchema)?.schema === "number"
 		);
 	}
-	$: console.log(issues);
 </script>
 
 {#each keys as k (k)}

@@ -65,7 +65,7 @@
 				</div>
 				<div class="mt-4">
 					<span class="font-semibold">Rp. {product.price.toLocaleString("id-ID")}</span>
-					<p class="break-all">{product.description || ""}</p>
+					<p>{product.description || ""}</p>
 				</div>
 			</Card>
 		</div>

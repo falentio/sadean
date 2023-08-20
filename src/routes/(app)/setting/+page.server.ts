@@ -4,18 +4,19 @@ import { updateSchema } from './schema.js';
 import type { Output } from 'valibot';
 import type { Account } from '$lib/schema/index.js';
 import { redirect } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types.js';
+
+export const load: PageServerLoad = async ({ platform, locals }) => {
+    const account = await platform!.KV.get<Account>(`account:${locals.account!.name}`, "json")
+    return { account }
+}
 
 export async function _updateHandler(kv: KVNamespace, name: string, data: Output<typeof updateSchema>) {
     const account = await kv.get<Account>(`account:${name}`, "json")
     if (!account) {
         return
     }
-    Object.keys(data).forEach((k) => {
-        const v = data[k as keyof typeof data]
-        if (v) {
-            account[k as keyof typeof data] = v
-        }
-    })
+    Object.assign(account, data)
     await kv.put(`account:${name}`, JSON.stringify(account))
     throw redirect(302, "/" + name)
 }
