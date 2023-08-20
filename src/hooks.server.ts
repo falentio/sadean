@@ -17,6 +17,8 @@ export const handle: Handle = async ({ event, resolve }) => {
         const KV = new KVNamespace(storage)
         const R2 = new R2Bucket(storage)
         Object.assign((event.platform as object) ??= {}, { KV, R2 })
+    } else {
+        Object.assign((event.platform as object), (event.platform as any).env)
     }
     const token = event.cookies.get("jwt")
     if (token) {
