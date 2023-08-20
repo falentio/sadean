@@ -1,4 +1,4 @@
-import { error, type Action, fail, HttpError_1, type HttpError } from "@sveltejs/kit";
+import { error, type Action, fail, type HttpError } from "@sveltejs/kit";
 import { parse, type BaseSchema, type Output, ValiError, type ObjectSchema } from "valibot";
 import { known } from "./schema";
 
