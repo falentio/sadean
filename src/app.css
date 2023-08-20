@@ -1,0 +1,22 @@
+* {
+	--uno: border-black box-border;
+}
+
+body {
+	--uno: font-unbounded;
+}
+
+button,
+a,
+label {
+	--uno: select-none;
+}
+
+@keyframes marque {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
